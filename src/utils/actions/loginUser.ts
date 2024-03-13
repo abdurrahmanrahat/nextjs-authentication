@@ -1,0 +1,15 @@
+"use server";
+
+export const loginUser = async (data) => {
+  const res = await fetch(`${process.env.BACKED_URL}/login`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+    cache: "no-store",
+  });
+  const userInfo = await res.json();
+
+  return userInfo;
+};
