@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const DashboardPage = async () => {
   const session = await getServerSession(authOptions); // come user info.
-  console.log(session);
+  // console.log(session);
 
   return (
     <div>
@@ -17,7 +17,10 @@ const DashboardPage = async () => {
             Logged in user email: {session?.user?.email}
           </h1>
           <Image
-            src={session?.user?.image}
+            src={
+              session?.user?.image ||
+              "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
+            }
             width={100}
             height={100}
             alt="User Image"
